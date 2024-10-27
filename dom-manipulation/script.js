@@ -221,7 +221,33 @@ function importFromJsonFile(event) {
   fileReader.readAsText(event.target.files[0]);
 }
 
+function createAddQuoteForm {
+  const form = document.createElement("form");
+  form.id = "addQuoteForm";
 
+  const textInput = document.createElement("input");
+  textInput.type = "text";
+  textInput.id = "newQuoteText";
+  textInput.placeholder = "Enter quote text...";
+  form.appendChild(textInput);
+
+  const categorySelect = document.createElement("select");
+  categorySelect.id = "newQuoteCategory";
+  categorySelect.placeholder = "Select category...";
+  form.appendChild(categorySelect);
+
+  const categories = [...new Set(quotes.map((q) => q.category))];
+  categories.forEach((category) => {
+    const option = document.createElement("option");
+    option.value = category;
+    option.textContent = category;
+    categorySelect.appendChild(option);
+  });
+
+  const submitButton = document.createElement("button");
+  submitButton.type = "submit";
+  submitButton.textContent = "
+}
 // Event listeners
 document.getElementById("newQuote").addEventListener("click", showRandomQuote);
 document.getElementById("addQuoteButton").addEventListener("click", addQuote);
