@@ -210,6 +210,8 @@ window.onload = function () {
   setInterval(syncQuotes, 30000); // Sync with server every 30 seconds
 };
 
+
+importFromJsonFile(event); /*
 // Event listeners
 document.getElementById("newQuote").addEventListener("click", showRandomQuote);
 document.getElementById("addQuoteButton").addEventListener("click", addQuote);
